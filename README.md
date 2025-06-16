@@ -1,40 +1,159 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
 
-## Getting Started
+# 🧠 Emotion Check-In – Mood Tracker App
 
-First, run the development server:
+A smooth and responsive mood tracking web application built using **Next.js**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**. It allows users to log their emotional state, add contextual notes, visualize trends, and set reminders — with animations and responsive UI inspired by a provided Figma design.
+
+---
+
+---
+
+## 🛠 Tech Stack
+
+| Layer            | Tools Used                               |
+|------------------|-------------------------------------------|
+| Framework        | Next.js (TypeScript)                      |
+| Styling          | Tailwind CSS                              |
+| Animations       | Framer Motion                             |
+| API              | Axios + JSONPlaceholder (Mock API)        |
+| Charts           | Recharts, react-calendar                  |
+| State Management | React Context API                         |
+
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/emotion-checkin.git
+cd moodtracker
+````
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+---
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## 📁 Project Structure
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+```
+/src
+  /pages
+    index.tsx              // Start Check-in
+    mood.tsx               // Mood + Intensity selection
+    activity.tsx           // Journaling input
+    summary.tsx            // Summary & submit
+    dashboard.tsx          // Mood dashboard + reminders
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+  /components
+    EmotionSelector.tsx
+    MoodIntensitySelector.tsx
+    NotesInput.tsx
+    CalendarMoodView.tsx
+    ReminderForm.tsx
 
-## Learn More
+  /context
+    MoodContext.tsx        // Global mood state
 
-To learn more about Next.js, take a look at the following resources:
+  /api
+    api.ts                 // Axios mock API handler
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔄 Feature Flow
 
-## Deploy on Vercel
+1. **Start Check-In** → `/`
+2. **Select Mood + Intensity** → `/mood`
+3. **Add Journal Notes** → `/activity`
+4. **Confirm & Submit** → `/summary`
+5. **Dashboard View** → `/dashboard`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## 🧠 Features
+
+### ✅ Emotion Check-In
+
+* Select from predefined emotions (animated cards).
+* Choose intensity (Slight, Moderate, Strong).
+* Smooth micro-interactions via Framer Motion.
+
+### 📝 Notes Input
+
+* Optional text area (max 500 characters).
+* Character counter with validation.
+
+### 📤 Mock API Submission
+
+* POST data to `https://jsonplaceholder.typicode.com/posts`.
+* Shows loading, success, or error states.
+* Payload:
+
+```json
+{
+  "emotion": "Happy",
+  "intensity": "Moderate",
+  "notes": "Had a great day!",
+  "timestamp": "2025-06-16T12:45:00Z"
+}
+```
+
+### 📊 Dashboard
+
+* Monthly calendar of moods.
+* Frequency bar chart.
+* Reminder form with localStorage support.
+
+---
+
+## ⚙️ Performance & Accessibility
+
+* Responsive (desktop ≥ 1024px)
+* Lighthouse score ≥ 85 (Performance)
+* Semantic HTML & keyboard navigable
+* ARIA labels for better accessibility
+
+---
+
+## 🧪 Testing & Compatibility
+
+* Tested on: Chrome, Firefox (latest)
+* Basic form validation and submission states tested
+
+---
+
+## 📃 Brief Write-Up
+
+### Key Decisions:
+
+* **Next.js + TypeScript** for scalability and routing.
+* **Tailwind CSS** for rapid and responsive styling.
+* **Framer Motion** for lightweight, fluid animations.
+* **Context API** instead of Redux to keep state management lightweight.
+
+### Challenges:
+
+* Maintaining mood selection and notes across pages without prop drilling.
+  ✅ Resolved using a global `MoodContext`.
+
+* Ensuring smooth animations with performance.
+  ✅ Used `layoutId` transitions and staggered animations from Framer Motion.
+
+### Trade-offs:
+
+* Using mock API instead of persistent DB limits data retention.
+* Could improve with persistent login/auth for long-term analytics.
+
