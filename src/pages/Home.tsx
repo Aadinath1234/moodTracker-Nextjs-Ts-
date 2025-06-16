@@ -20,9 +20,7 @@ const Home = () => {
         <img
           src="/frame.png"
           alt="frame"
-          className="absolute inset-0 w-full h-full max-sm:h-5/9 max-sm:mt-20  object-contain z-10
-           
-          "
+          className="absolute inset-0 w-full h-full max-sm:h-5/9 max-sm:mt-20  object-contain z-10"
           onClick={handleStartCheckIn}
         />
       </div>
