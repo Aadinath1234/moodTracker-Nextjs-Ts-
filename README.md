@@ -1,7 +1,7 @@
 
 # 🧠 Emotion Check-In – Mood Tracker App
 
-A smooth and responsive mood tracking web application built using **Next.js**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**. It allows users to log their emotional state, add contextual notes, visualize trends, and set reminders — with animations and responsive UI inspired by a provided Figma design.
+A smooth and responsive mood tracking web application built using **Next.js**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**. It allows users to log their emotional state, add contextual notes, visualize trends, and set reminders — with animations. 🌐 Live Demo: https://mood-trackerr.vercel.app
 
 ---
 
@@ -26,7 +26,7 @@ A smooth and responsive mood tracking web application built using **Next.js**, *
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/emotion-checkin.git
+git clone https://github.com/Aadinath1234/moodTracker-Nextjs-Ts-.git
 cd moodtracker
 ````
 
