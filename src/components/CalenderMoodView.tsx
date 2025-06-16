@@ -55,7 +55,7 @@ const CalendarMoodView: React.FC = () => {
     return moodData[isoDate] || null;
   };
 
-  const handleChange: CalendarProps["onChange"] = (value, _event) => {
+  const handleChange: CalendarProps["onChange"] = (value) => {
     if (value instanceof Date) {
       setValue(value);
     } else if (Array.isArray(value) && value[0] instanceof Date) {
