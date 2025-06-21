@@ -35,6 +35,10 @@ const MoodSelect: React.FC = () => {
             <p>How are you feeling today?</p>
           </div>
 
+{/*           <p className="font-semibold font-[Montserrat] text-base md:text-xl p-2 md:p-4 text-center">
+            No matter how you&apos;re feeling, it&apos;s okay. We&apos;re here to support you.
+          </p> */}
+
           <p className="font-semibold font-[Montserrat] text-base md:text-xl p-2 md:p-4 text-center">
             No matter how you&apos;re feeling, it&apos;s okay. We&apos;re here to support you.
 
