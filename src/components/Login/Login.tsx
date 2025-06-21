@@ -8,7 +8,7 @@ interface FormData {
   password: string;
   confirmPassword: string;
 }
-
+ 
 const Login: React.FC = () => {
   const [isLoginMode, setIsLoginMode] = useState<boolean>(true);
   const [formData, setFormData] = useState<FormData>({
