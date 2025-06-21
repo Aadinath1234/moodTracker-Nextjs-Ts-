@@ -1,21 +1,44 @@
-import React,{ useEffect } from "react";
-import {useRouter} from 'next/router';
+// import React,{ useEffect } from "react";
+// import {useRouter} from 'next/router';
 
-const withAuth = (WrappedComponent: React.ComponentType) => {
-     const AuthenticatedComponent = (props: any) => {
-         const router = useRouter(); 
+// const withAuth = (WrappedComponent: React.ComponentType) => {
+//      const AuthenticatedComponent = (props: any) => {
+//          const router = useRouter(); 
 
-         useEffect(() =>{
-            const user = JSON.parse(localStorage.getItem('user') || '{}'); 
-            if(!user || !user.token){
-                router.replace('/about'); 
-            }  
+//          useEffect(() =>{
+//             const user = JSON.parse(localStorage.getItem('user') || '{}'); 
+//             if(!user || !user.token){
+//                 router.replace('/about'); 
+//             }  
           
-         },[]); 
+//          },[]); 
 
-        return <WrappedComponent {...props} />; 
-     };
-     return AuthenticatedComponent; 
-}; 
+//         return <WrappedComponent {...props} />; 
+//      };
+//      return AuthenticatedComponent; 
+// }; 
 
-export default withAuth; 
+// export default withAuth; 
+
+
+import React, { useEffect } from "react";
+import { useRouter } from "next/router";
+
+const withAuth = <P extends object>(WrappedComponent: React.ComponentType<P>) => {
+  const AuthenticatedComponent = (props: P) => {
+    const router = useRouter();
+
+    useEffect(() => {
+      const user = JSON.parse(localStorage.getItem("user") || "{}");
+      if (!user || !user.token) {
+        router.replace("/about");
+      }
+    }, []);
+
+    return <WrappedComponent {...props} />;
+  };
+
+  return AuthenticatedComponent;
+};
+
+export default withAuth;
