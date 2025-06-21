@@ -30,7 +30,7 @@ export const submitMoodEntry = async (entry: MoodEntry) => {
  */
 export const fetchMoodHistory = async (): Promise<MoodEntry[]> => {
   try {
-    const response = await axios.get(BASE_URL);
+     await axios.get(BASE_URL);
     // Simulated transformation for now
     const mockData: MoodEntry[] = [
       {
