@@ -1,4 +1,3 @@
-// /api/api.ts
 import axios from 'axios';
 
 export interface MoodEntry {
