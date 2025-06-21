@@ -1,51 +1,37 @@
-
 # 🧠 Emotion Check-In – Mood Tracker App
 
-A smooth and responsive mood tracking web application built using **Next.js**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**. It allows users to log their emotional state, add contextual notes, visualize trends, and set reminders — with animations.
-Design and Developed for :Svadhyay Sourcing  #www.theodysvadhyay.co.in
+A smooth and responsive mood tracking web application built using **Next.js**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**.
+Users can log their emotional state, add contextual notes, visualize trends, set reminders, and now **securely log in** to access their personalized dashboard.
 
-🌐 Live Demo: https://mood-trackerr.vercel.app
-
----
+**Designed and Developed for**: Svadhyay Sourcing
+🌐 **Live Demo**: [https://mood-trackerr.vercel.app](https://mood-trackerr.vercel.app)
 
 ---
 
 ## 🛠 Tech Stack
 
-| Layer            | Tools Used                               |
-|------------------|-------------------------------------------|
-| Framework        | Next.js (TypeScript)                      |
-| Styling          | Tailwind CSS                              |
-| Animations       | Framer Motion                             |
-| API              | Axios + JSONPlaceholder (Mock API)        |
-| Charts           | Recharts, react-calendar                  |
-| State Management | React Context API                         |
-
+| Layer            | Tools Used                            |
+| ---------------- | ------------------------------------- |
+| Framework        | Next.js (TypeScript)                  |
+| Styling          | Tailwind CSS                          |
+| Animations       | Framer Motion                         |
+| Authentication   | JWT + LocalStorage (custom auth flow) |
+| API              | Axios + JSONPlaceholder (Mock API)    |
+| Charts           | Recharts, react-calendar              |
+| State Management | React Context API                     |
 
 ---
 
 ## 🚀 Getting Started
 
-### 1. Clone the repository
-
 ```bash
 git clone https://github.com/Aadinath1234/moodTracker-Nextjs-Ts-.git
 cd moodtracker
-````
-
-### 2. Install dependencies
-
-```bash
 npm install
-```
-
-### 3. Run the development server
-
-```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
@@ -53,57 +39,85 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ```
 /src
-  /pages
-    index.tsx              // Start Check-in
-    mood.tsx               // Mood + Intensity selection
-    activity.tsx           // Journaling input
-    summary.tsx            // Summary & submit
-    dashboard.tsx          // Mood dashboard + reminders
-
-  /components
-    EmotionSelector.tsx
-    MoodIntensitySelector.tsx
-    NotesInput.tsx
-    CalendarMoodView.tsx
-    ReminderForm.tsx
-
-  /context
-    MoodContext.tsx        // Global mood state
-
-  /api
-    api.ts                 // Axios mock API handler
-```
+│
+├── /components              # Reusable UI components
+│   ├── CalenderMoodView.tsx
+│   ├── EmotionSelector.tsx
+│   ├── MoodIntensitySelector.tsx
+│   ├── MoodOption.tsx
+│   ├── NotesInput.tsx
+│   ├── ReminderForm.tsx
+│   ├── withAuth.tsx                 # HOC: Protect routes
+│   └── withRedirectIfAuth.tsx      # HOC: Redirect if already logged in
+│
+├── /context                 # Global state management
+│   └── MoodContext.tsx
+│
+├── /lib                     # Helper utilities & API
+│   └── users.ts             # Mock user authentication logic
+│
+├── /pages                   # Next.js routes (auto-mapped)
+│   ├── /api                 # API routes
+│   │   └── realApi.ts       # API simulation (e.g., POST mood data)
+│   ├── About.tsx
+│   ├── ActivityInput.tsx
+│   ├── Contact.tsx
+│   ├── Dashboard.tsx
+│   ├── Home.tsx
+│   ├── Homepage.tsx
+│   ├── MoodSelect.tsx
+│   ├── Summary.tsx
+│   ├── index.tsx            # Root/home
+│   ├── login.tsx            # Login route
+│   └── _app.tsx             # App wrapper
+│
+├── /styles                  # Tailwind/custom CSS
+│   └── globals.css
+│
+├── /types                   # TypeScript types
+│   └── index.d.ts
+│
+└── /ui                      # UI-specific components (form, layout, etc.)
+    └── AuthForm.tsx         # Reusable login/register form
 
 ---
 
-## 🔄 Feature Flow
+## 🔄  Feature Flow
 
-1. **Start Check-In** → `/`
-2. **Select Mood + Intensity** → `/mood`
-3. **Add Journal Notes** → `/activity`
-4. **Confirm & Submit** → `/summary`
-5. **Dashboard View** → `/dashboard`
+1. Home → `/` (Public)
+2. Login / Register → `/login`, `/register`
+3. Start Check-In → `/start`
+4. Select Mood + Intensity → `/mood`
+5. Add Notes → `/activity`
+6. Confirm & Submit → `/summary`
+7. Dashboard & Reminders → `/dashboard`
+8. Logout → Redirects to `/`
 
 ---
 
 ## 🧠 Features
 
+### ✅ Authentication (NEW!)
+
+* Users must **log in or register** to track moods.
+* Credentials stored securely with mock JWT flow.
+* Auth state persisted via `localStorage`.
+* Access to `/start`, `/mood`, etc., gated via context-based route protection.
+
 ### ✅ Emotion Check-In
 
-* Select from predefined emotions (animated cards).
+* Select from animated, predefined emotions.
 * Choose intensity (Slight, Moderate, Strong).
-* Smooth micro-interactions via Framer Motion.
+* Micro-interactions powered by Framer Motion.
 
 ### 📝 Notes Input
 
-* Optional text area (max 500 characters).
-* Character counter with validation.
+* Optional 500-character journaling input.
+* Real-time character counter and validation.
 
 ### 📤 Mock API Submission
 
-* POST data to `https://jsonplaceholder.typicode.com/posts`.
-* Shows loading, success, or error states.
-* Payload:
+POST to `https://jsonplaceholder.typicode.com/posts`
 
 ```json
 {
@@ -116,47 +130,34 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ### 📊 Dashboard
 
-* Monthly calendar of moods.
-* Frequency bar chart.
-* Reminder form with localStorage support.
+* Calendar-based monthly mood view.
+* Bar chart showing emotion frequency.
+* Reminders saved in `localStorage`.
 
 ---
 
 ## ⚙️ Performance & Accessibility
 
-* Responsive (desktop ≥ 1024px)
-* Lighthouse score ≥ 85 (Performance)
-* Semantic HTML & keyboard navigable
-* ARIA labels for better accessibility
+* **Responsive**: Mobile, tablet, and desktop.
+* **Lighthouse Score** ≥ 85
+* **Accessible**: Semantic HTML, keyboard navigable, ARIA-supported.
 
 ---
 
 ## 🧪 Testing & Compatibility
 
-* Tested on: Chrome, Firefox (latest)
-* Basic form validation and submission states tested
+* Tested in Chrome and Firefox (latest).
+* Form validation, loading states, and error handling covered.
 
 ---
 
-## 📃 Brief Write-Up
+## 📃 Key Design Decisions
 
-### Key Decisions:
+* **Next.js + TypeScript**: Scalable architecture with SSR benefits.
+* **Tailwind CSS**: Rapid styling and consistency.
+* **Framer Motion**: Seamless animations with performance optimizations.
+* **Context API**: Lightweight global state for mood + auth data.
 
-* **Next.js + TypeScript** for scalability and routing.
-* **Tailwind CSS** for rapid and responsive styling.
-* **Framer Motion** for lightweight, fluid animations.
-* **Context API** instead of Redux to keep state management lightweight.
+---
 
-### Challenges:
-
-* Maintaining mood selection and notes across pages without prop drilling.
-  ✅ Resolved using a global `MoodContext`.
-
-* Ensuring smooth animations with performance.
-  ✅ Used `layoutId` transitions and staggered animations from Framer Motion.
-
-### Trade-offs:
-
-* Using mock API instead of persistent DB limits data retention.
-* Could improve with persistent login/auth for long-term analytics.
 
