@@ -1,18 +1,48 @@
-import mongoose, { mongo } from 'mongoose';
-import { cache } from 'react';
+// import mongoose, { mongo } from 'mongoose';
+// import { cache } from 'react';
+
+// const MONGODB_URI = process.env.MONGODB_URI || '';
+
+// if(!MONGODB_URI) throw new Error('Please define the mongodburi in .env.local');
+
+// let cached = (global as any).mongoose || {conn: null};
+
+
+// export async function connectToDatabase() {
+//      if(cached.conn) return cached.conn; 
+
+//      cached.conn = await mongoose.connect(MONGODB_URI);
+         
+
+//      return cached.conn; 
+// }
+
+
+
+import mongoose from 'mongoose';
 
 const MONGODB_URI = process.env.MONGODB_URI || '';
 
-if(!MONGODB_URI) throw new Error('Please define the mongodburi in .env.local');
+if (!MONGODB_URI) {
+  throw new Error('Please define the MONGODB_URI in .env.local');
+}
 
-let cached = (global as any).mongoose || {conn: null};
+// Define a custom type for the global cache object
+interface MongooseGlobal {
+  conn: typeof mongoose | null;
+}
 
+// Use globalThis instead of any
+const globalWithMongoose = globalThis as unknown as { mongoose: MongooseGlobal };
+
+globalWithMongoose.mongoose = globalWithMongoose.mongoose || { conn: null };
 
 export async function connectToDatabase() {
-     if(cached.conn) return cached.conn; 
+  if (globalWithMongoose.mongoose.conn) {
+    return globalWithMongoose.mongoose.conn;
+  }
 
-     cached.conn = await mongoose.connect(MONGODB_URI);
-         
+  globalWithMongoose.mongoose.conn = await mongoose.connect(MONGODB_URI);
 
-     return cached.conn; 
+  return globalWithMongoose.mongoose.conn;
 }
