@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
+import React, { useState, ChangeEvent, FormEvent } from "react";
 import { useRouter } from "next/router";
 import { login, register } from "../../pages/api/auth";
 
@@ -54,9 +54,14 @@ const Login: React.FC = () => {
         alert("Signup successful! Please log in.");
         setIsLoginMode(true);
       }
-    } catch (error: any) {
-      alert(error.response?.data?.message || "Something went wrong");
-    }
+   } catch (error: unknown) {
+  if (error instanceof Error) {
+    alert(error.message);
+  } else {
+    alert("Something went wrong");
+  }
+}
+
   };
 
   return (
