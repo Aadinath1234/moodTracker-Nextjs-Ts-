@@ -2,7 +2,7 @@
 // import {useRouter} from 'next/router';
 
 // const withAuth = (WrappedComponent: React.ComponentType) => {
-//      const AuthenticatedComponent = (props: any) => {
+//      const AuthenticatedComponent = (props: any) => { 
 //          const router = useRouter(); 
 
 //          useEffect(() =>{
