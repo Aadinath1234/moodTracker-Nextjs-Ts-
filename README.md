@@ -38,47 +38,78 @@ Visit [http://localhost:3000](http://localhost:3000) in your browser.
 ## 📁 Project Structure
 
 ```
-/src
-│
-├── /components              # Reusable UI components
-│   ├── CalenderMoodView.tsx
-│   ├── EmotionSelector.tsx
-│   ├── MoodIntensitySelector.tsx
-│   ├── MoodOption.tsx
-│   ├── NotesInput.tsx
-│   ├── ReminderForm.tsx
-│   ├── withAuth.tsx                 # HOC: Protect routes
-│   └── withRedirectIfAuth.tsx      # HOC: Redirect if already logged in
-│
-├── /context                 # Global state management
-│   └── MoodContext.tsx
-│
-├── /lib                     # Helper utilities & API
-│   └── users.ts             # Mock user authentication logic
-│
-├── /pages                   # Next.js routes (auto-mapped)
-│   ├── /api                 # API routes
-│   │   └── realApi.ts       # API simulation (e.g., POST mood data)
-│   ├── About.tsx
-│   ├── ActivityInput.tsx
-│   ├── Contact.tsx
-│   ├── Dashboard.tsx
-│   ├── Home.tsx
-│   ├── Homepage.tsx
-│   ├── MoodSelect.tsx
-│   ├── Summary.tsx
-│   ├── index.tsx            # Root/home
-│   ├── login.tsx            # Login route
-│   └── _app.tsx             # App wrapper
-│
-├── /styles                  # Tailwind/custom CSS
-│   └── globals.css
-│
-├── /types                   # TypeScript types
-│   └── index.d.ts
-│
-└── /ui                      # UI-specific components (form, layout, etc.)
-    └── AuthForm.tsx         # Reusable login/register form
+Directory structure:
+└── aadinath1234-moodtracker-nextjs-ts-/
+    ├── README.md
+    ├── components.json
+    ├── eslint.config.mjs
+    ├── next.config.ts
+    ├── package.json
+    ├── postcss.config.mjs
+    ├── tsconfig.json
+    └── src/
+        ├── components/
+        │   ├── CalenderMoodView.tsx
+        │   ├── EmotionSelector.tsx
+        │   ├── MoodIntensitySelector.tsx
+        │   ├── MoodOption.tsx
+        │   ├── NotesInput.tsx
+        │   ├── ReminderForm.tsx
+        │   ├── withAuth.tsx
+        │   ├── withRedirectIfAuth.tsx
+        │   ├── Homepage/
+        │   │   ├── Homepage.tsx
+        │   │   ├── About/
+        │   │   │   └── About.tsx
+        │   │   ├── Cards/
+        │   │   │   └── Cards.tsx
+        │   │   ├── Footer/
+        │   │   │   └── Footer.tsx
+        │   │   ├── Hero/
+        │   │   │   └── Hero.tsx
+        │   │   ├── Navbar/
+        │   │   │   └── Navbar.tsx
+        │   │   └── Services/
+        │   │       └── Services.tsx
+        │   ├── Login/
+        │   │   └── Login.tsx
+        │   └── ui/
+        │       ├── accordion.tsx
+        │       ├── button.tsx
+        │       ├── card.tsx
+        │       ├── carousel.tsx
+        │       └── navigation-menu.tsx
+        ├── context/
+        │   └── MoodContext.tsx
+        ├── lib/
+        │   ├── db.ts
+        │   ├── users.ts
+        │   └── utils.ts
+        ├── pages/
+        │   ├── _app.tsx
+        │   ├── _document.tsx
+        │   ├── About.tsx
+        │   ├── ActivityInput.tsx
+        │   ├── Contact.tsx
+        │   ├── Dashboard.tsx
+        │   ├── Home.tsx
+        │   ├── Homepage.tsx
+        │   ├── index.tsx
+        │   ├── login.tsx
+        │   ├── MoodSelect.tsx
+        │   ├── Summary.tsx
+        │   └── api/
+        │       ├── api.ts
+        │       ├── auth.ts
+        │       ├── hello.ts
+        │       ├── realApi.ts
+        │       └── auth/
+        │           ├── login.ts
+        │           └── register.ts
+        ├── styles/
+        │   └── globals.css
+        └── types/
+            └── MoodEntry.ts
 
 ---
 
