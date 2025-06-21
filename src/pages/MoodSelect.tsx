@@ -36,7 +36,8 @@ const MoodSelect: React.FC = () => {
           </div>
 
           <p className="font-semibold font-[Montserrat] text-base md:text-xl p-2 md:p-4 text-center">
-            No matter how you're feeling, it's okay. We're here to support you.
+            No matter how you&apos;re feeling, it&apos;s okay. We&apos;re here to support you.
+
           </p>
 
           {!showIntensity && (

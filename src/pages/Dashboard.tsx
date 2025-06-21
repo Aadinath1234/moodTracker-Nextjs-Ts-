@@ -99,10 +99,13 @@ const Dashboard: React.FC = () => {
               ⬅ Back
             </button>
             <button
-              onClick={() => router.push("/")}
+              onClick={() =>{
+                   localStorage.removeItem('user');
+                   router.push('/Homepage'); 
+              }}              
               className="flex-1 border-2 border-black rounded-2xl p-2 md:p-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold"
             >
-              Next ➡
+              Logout ➡
             </button>
           </div>
         </div>

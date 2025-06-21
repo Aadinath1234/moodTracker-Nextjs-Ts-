@@ -1,12 +1,14 @@
-import Image from "next/image";
-import Landing from './Home';
+// import Image from "next/image";
+import Landing from '../components/Homepage/Homepage';
+import withRedirectIfAuth from '@/components/withRedirectIfAuth';
 
 
-
-export default function Home() {
+function Home() {
   return (
     <div>
        <Landing />
     </div>
   );
 }
+
+export default withRedirectIfAuth(Home);

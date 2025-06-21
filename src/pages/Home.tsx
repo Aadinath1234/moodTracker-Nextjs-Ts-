@@ -1,6 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
-import Image from "next/image";
+import withAuth from "@/components/withAuth";
+// import Image from "next/image";
 
 const Home = () => {
   const router = useRouter();
@@ -30,4 +31,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default withAuth(Home);

@@ -37,7 +37,7 @@ const Summary: React.FC = () => {
       setTimeout(() => {
         router.push("/Dashboard");
       }, 1500);
-    } catch (err) {
+    } catch{
       setError("Failed to submit. Please try again.");
     } finally {
       setLoading(false);

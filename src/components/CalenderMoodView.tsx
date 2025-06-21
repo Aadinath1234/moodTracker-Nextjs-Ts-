@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Calendar, { CalendarProps } from "react-calendar";
-import "react-calendar/dist/Calendar.css";
+// import "react-calendar/dist/Calendar.css";
 
 type MoodEntry = {
   mood: string;
@@ -57,6 +57,7 @@ const CalendarMoodView: React.FC = () => {
 
   const handleChange: CalendarProps["onChange"] = (value, _event) => {
     if (value instanceof Date) {
+      void _event;
       setValue(value);
     } else if (Array.isArray(value) && value[0] instanceof Date) {
       setValue(value[0]);
