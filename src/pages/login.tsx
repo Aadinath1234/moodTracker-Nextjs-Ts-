@@ -1,8 +1,6 @@
 // moodtracker/src/pages/about.tsx
 import React from 'react';
 import Login from '../components/Login/Login';
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
 import withRedirectIfAuth from '@/components/withRedirectIfAuth';
 
 
