@@ -3,7 +3,7 @@
 A smooth and responsive mood tracking web application built using **Next.js**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**.
 Users can log their emotional state, add contextual notes, visualize trends, set reminders, and now **securely log in** to access their personalized dashboard.
 
-**Designed and Developed for**: Svadhyay Sourcing
+
 🌐 **Live Demo**: [https://mood-trackerr.vercel.app](https://mood-trackerr.vercel.app)
 
 ---
